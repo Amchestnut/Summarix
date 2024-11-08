@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app_module" />
+            <option value="$PROJECT_DIR$/csv_module" />
+            <option value="$PROJECT_DIR$/excel_module" />
+            <option value="$PROJECT_DIR$/pdf_module" />
+            <option value="$PROJECT_DIR$/spec_module" />
+            <option value="$PROJECT_DIR$/txt_module" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

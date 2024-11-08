@@ -1,0 +1,46 @@
+{
+  "reportType": "EXCEL",
+  "title": "Student Report",
+  "titleStyle": {
+    "bold": true,
+    "italic": false,
+    "color": "#FF0000",
+    "fontSize": 16
+  },
+  "headerStyle": {
+    "bold": true,
+    "color": "#0000FF",
+    "fontSize": 12
+  },
+  "rowStyle": {
+    "italic": true,
+    "fontSize": 11
+  },
+  "summaryStyle": {
+    "bold": true,
+    "italic": true,
+    "color": "#00FF00",
+    "fontSize": 14
+  },
+  "header": true,
+  "columns": [3, 4, 5, 6, 7],
+  "rows": "all",
+  "computedColumns": [
+    {
+      "columnName": "TotalPoints",
+      "operation": "*",
+      "columns": [3, 4, 5]
+    }
+  ],
+  "summary": {
+    "total_points": {
+      "operation": "SUM",
+      "column": 5
+    },
+    "average_points": {
+      "operation": "AVG",
+      "column": 5
+    }
+  },
+  "destination": "outputs/StudentReport.xlsx"
+}

@@ -1,0 +1,25 @@
+PDF
+input 1: tests only if we can create anything. Creates a table with title, header, data, and some basic summary (on numeric data)
+input 2: tests if we get an exception if we want to get summary from a "String containing column", like 'name'
+input 3: tests if adding a new column WORKS, column 5 from adding column 3 + column 4
+input 4: tests if adding a new column works, if we multiply multiple columns (3,4,5) -> (6)
+input 5: tests if adding a new column works, for "-" or "/"
+input 6: tests if adding a new column doesnt work, if we select 3 columns for "-" or "/"
+
+
+EXCEL
+input 7: testing excel
+input 8: testing excel with synthetic made columns
+
+
+CSV
+input 9: testing csv
+input 10: testing csv with additional columns, trying to add summaries (which wont throw an error)
+
+TXT
+input 11
+input 12
+
+
+countIF, averageIF i druge IF funkcije sa conditionom
+input 13

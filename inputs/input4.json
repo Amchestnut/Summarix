@@ -1,0 +1,25 @@
+{
+  "reportType": "PDF",
+  "title": "Student Report",
+  "header": true,
+  "columns": [3, 4, 5, 6, 7],
+  "rows": "all",
+  "computedColumns": [
+    {
+      "columnName": "TotalPoints",
+      "operation": "*",
+      "columns": [3,4,5]
+    }
+  ],
+  "summary": {
+    "total_points": {
+      "operation": "SUM",
+      "column": 5
+    },
+    "average_points": {
+      "operation": "AVG",
+      "column": 5
+    }
+  },
+  "destination": "outputs/StudentReport.pdf"
+}

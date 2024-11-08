@@ -1,0 +1,18 @@
+{
+  "reportType": "TXT",
+  "title": "Student Report",
+  "header": true,
+  "columns": [1, 2, 3, 4, 5],
+  "rows": "all",
+  "summary": {
+    "total_points": {
+      "operation": "SUM",
+      "column": 5
+    },
+    "average_points": {
+      "operation": "AVG",
+      "column": 5
+    }
+  },
+  "destination": "outputs/StudentReport.txt"
+}

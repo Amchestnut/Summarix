@@ -1,0 +1,25 @@
+{
+  "reportType": "PDF",
+  "title": "Student Report",
+  "header": true,
+  "columns": [2, 3, 4, 5, 6, 7],
+  "rows": "all",
+  "summary": {
+    "total_points_if": {
+      "operation": "SUMIF",
+      "column": 4,
+      "condition": ">80"
+    },
+    "average_points_if": {
+      "operation": "AVGIF",
+      "column": 4,
+      "condition": "<90"
+    },
+    "count_points_if": {
+      "operation": "COUNTIF",
+      "column": 4,
+      "condition": "=85"
+    }
+  },
+  "destination": "outputs/StudentReport.pdf"
+}
