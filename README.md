@@ -1,18 +1,18 @@
 # **Summarix: Advanced Multi-Format Report Generator**  
 
-Summarix is a powerful, modular report generation library written in Kotlin. It enables seamless generation of reports in multiple formats (PDF, XLSX, CSV, TXT) with advanced customization options such as computed columns, summary rows, and user-defined styles. Designed with extensibility and scalability in mind, Summarix is a versatile tool for businesses, developers, and data analysts seeking to automate report generation.
+**Summarix** is a powerful, modular report generation library written in **Kotlin**. It enables seamless generation of reports in multiple formats **(PDF, XLSX, CSV, TXT)** with advanced customization options such as **computed columns, summary rows, and user-defined styles**. Designed with **extensibility** and **scalability** in mind, Summarix is a versatile tool for businesses, developers, and data analysts seeking to automate report generation.
 
 ## **Features**
-- Multi-Format Support: Generate reports in PDF, Excel, CSV, and TXT formats.  
-- Customizable Styling:  
-  - Title: Set font size, bold, italic, underline, and color.  
-  - Header: Customize font size, boldness, and color.  
-  - Rows: Style individual rows with different options.  
-  - Summary: Format summary text with rich styles.  
-- Computed Columns: Define custom columns with operations (+, -, *, /) based on existing data.  
-- Summaries: Perform operations like SUM, AVG, COUNT, or conditional calculations (SUMIF, AVGIF, etc.).  
-- Dynamic Data Handling: Automatically processes SQL result sets or JSON input for report generation.  
-- Extensibility: Built with modular architecture, supporting easy addition of new report formats.  
+- **Multi-Format Support**: Generate reports in **PDF, Excel, CSV, and TXT** formats.  
+- **Customizable Styling**:  
+  - **Title**: Set font size, bold, italic, underline, and color.  
+  - **Header**: Customize font size, boldness, and color.  
+  - **Rows**: Style individual rows with different options.  
+  - **Summary**: Format summary text with rich styles.  
+- **Computed Columns**: Define custom columns with operations (+, -, *, /) based on existing data.  
+- **Summaries**: Perform operations like SUM, AVG, COUNT, or conditional calculations (SUMIF, AVGIF, etc.).  
+- **Dynamic Data Handling**: Automatically processes **SQL result sets** or **JSON input** for report generation.  
+- **Extensibility**: Built with modular architecture, supporting easy addition of new report formats.  
 
 
 ## Getting Started
@@ -97,7 +97,7 @@ Generates a report in the desired format at the specified location.
 
 ## Tech Stack
 - **Languages**: *Kotlin, SQL*  
-- **Libraries**: *Gson, MySQL Connector, Lowagie (PDF generation), Apache POI (Excel)*  
+- **Libraries**: *Gson, MySQL Connector, LibrePDF/OpenPDF (PDF generation), Apache POI (Excel)*  
 - **Build Tool**: *Gradle*
 
 
