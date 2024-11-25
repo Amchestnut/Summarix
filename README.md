@@ -16,14 +16,14 @@
 
 
 ## Getting Started
-**Installation**
-Clone the repository and integrate it into your Kotlin/Gradle project:
+**Installation**  
+Clone the repository and integrate it into your Kotlin/Gradle project:  
 ```
 git clone https://github.com/your-username/summarix.git
 ```
 
-**Dependencies**
-Ensure the following dependencies are added to your build.gradle.kts:
+**Dependencies**  
+Ensure the following dependencies are added to your build.gradle.kts:  
 ```
 implementation("com.google.code.gson:gson:2.10.1")
 runtimeOnly("com.mysql:mysql-connector-j:8.4.0")
@@ -98,16 +98,16 @@ Generates a report in the desired format at the specified location.
 ## Tech Stack
 - **Languages**: *Kotlin, SQL*  
 - **Libraries**: *Gson, MySQL Connector, LibrePDF/OpenPDF (PDF generation), Apache POI (Excel)*  
-- **Build Tool**: *Gradle*
+- **Build Tool**: *Gradle*  
 
 
 ## Contributing
-**Contributions are welcome! Please follow these steps:**
-- Fork the repository.
-- Create a new feature branch.
-- Commit your changes.
-- Submit a pull request.
+**Contributions are welcome! Please follow these steps:**  
+- Fork the repository.  
+- Create a new feature branch.  
+- Commit your changes.  
+- Submit a pull request.  
 
 
 ## License
-This project is licensed under the MIT License. See LICENSE for details.
+This project is licensed under the MIT License. See LICENSE for details.  
