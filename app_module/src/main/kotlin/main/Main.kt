@@ -10,7 +10,7 @@ import java.io.FileReader
 
 fun main() {
     val gson = Gson()
-    val config = gson.fromJson(FileReader("inputs/input30.json"), ReportConfig::class.java)      // Change the input test here
+    val config = gson.fromJson(FileReader("inputs/input23.json"), ReportConfig::class.java)      // Change the input test here
 
     // Connect to the database
     val databaseService = MySQLDatabaseService()
