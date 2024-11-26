@@ -66,11 +66,12 @@ class TxtReportImplementation : ReportInterface {
     override fun generateTitle(title: String): String = title
 
     override fun generateHeader(columns: List<String>): String {
-        TODO("Not yet implemented")
+        return columns.joinToString(" | ")
     }
 
     override fun generateRow(data: Map<String, Any>, rowIndex: Int?): String {
-        TODO("Not yet implemented")
+        val rowNumber = rowIndex?.let { "$it. " } ?: ""
+        return rowNumber + data.values.joinToString(" | ") { it.toString() }
     }
 
     override fun generateSummary(summaryData: Map<String, Any>): String {

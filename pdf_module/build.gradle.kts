@@ -1,31 +1,30 @@
 plugins {
-    kotlin("jvm")   // ovaj plugin omogucava da pisemo kotlin koji se kompajlira na JVM
-    `java-library`  // this plugin provides additional features for library projects. It can separate what is exposed to users (API) and what is internal (IMPLEMENTATION)
-    `maven-publish` // this plugin helps publish artifact (like JAR FILES!!!) to maven repos, allowing other projects to import them as dependencies
+    kotlin("jvm")
+    `java-library`
+    `maven-publish`
 }
 
 group = "org.example"
-version = "1.0-SNAPSHOT"        // should set later, so we have: "org.example:module-name:1.0.0"
+version = "1.0-SNAPSHOT"
 
 repositories {
-    mavenCentral()              // primary source for libraries and dependencies ofc
-    mavenLocal()                // Really great because we can use other libraries in development that are not yet published to a central repository
+    mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
-    implementation("com.github.librepdf:openpdf:1.3.29")        // LIBRE PDF - Great for creating and manipulating PDF's
-    implementation(project(":spec_module"))                     // this PDF_module depends on spec_module for shared functionality (interfaces, abstract classes...)
-    testImplementation("org.jetbrains.kotlin:kotlin-test")      // need for writing tests
+    implementation("com.github.librepdf:openpdf:1.3.29")
+    implementation(project(":spec_module"))
+    testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 
 tasks.test {
-    useJUnitPlatform()          // Use "JUnit" platform for testing
+    useJUnitPlatform()
 }
 
-// Configures the module for publication in a Maven repository
 publishing {
     publications {
-        create<MavenPublication>("mavenJava"){  // Creates a new publications named "mavenJava"
+        create<MavenPublication>("mavenJava"){
             from(components["java"])
 
             groupId = "org.example"
@@ -34,7 +33,3 @@ publishing {
         }
     }
 }
-
-//kotlin {          i dont think we need this now
-//    jvmToolchain(21)
-//}

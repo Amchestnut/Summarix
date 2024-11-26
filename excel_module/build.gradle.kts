@@ -26,7 +26,7 @@ tasks.test {
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {
-            from(components["java"]) // If you're using the 'java' or 'kotlin' plugin
+            from(components["java"])
 
             groupId = "org.example"
             artifactId = "cetvrtaImpl"

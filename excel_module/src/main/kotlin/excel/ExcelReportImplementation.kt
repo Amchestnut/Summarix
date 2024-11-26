@@ -99,7 +99,7 @@ class ExcelReportImplementation : ReportInterface {
     private fun applyStyles(contentIdentifier: Any, styleConfig: Style?) {
         val cell = cellReferences[contentIdentifier]
         cell?.let {
-            val style = workbook.createCellStyle()  // Always create a new CellStyle for each cell
+            val style = workbook.createCellStyle()  // Always create a new CellStyle for each cell (needed for excel)
             it.cellStyle = style
 
             styleConfig?.let { config ->
@@ -186,7 +186,7 @@ class ExcelReportImplementation : ReportInterface {
             "#00FF00", "GREEN" -> IndexedColors.GREEN.index
             "#0000FF", "BLUE" -> IndexedColors.BLUE.index
             "#FFFF00", "YELLOW" -> IndexedColors.YELLOW.index
-            // Extend with more colors if needed
+
             else -> IndexedColors.BLACK.index // Default color
         }
     }

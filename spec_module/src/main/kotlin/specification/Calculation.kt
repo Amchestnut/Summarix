@@ -1,4 +1,3 @@
-//package org.example.specification     THIS CAUSED SO MANY PROBLEMS FOR META-INF in other modules
 package specification
 
 import exceptions.ColumnNotFoundException

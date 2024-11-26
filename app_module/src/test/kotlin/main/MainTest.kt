@@ -2,7 +2,9 @@ package main
 
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
+import specification.ReportInterface
 import java.sql.DriverManager
+import java.util.*
 
 class MainTest {
 
@@ -14,7 +16,7 @@ class MainTest {
             val password = ""
             val connection = DriverManager.getConnection(jdbcUrl, username, password)
 
-            // Assert that the connection is valid
+            // The connection is valid (let's test)
             assertTrue(connection.isValid(2), "Connection should be valid")
 
             connection.close()
@@ -22,5 +24,12 @@ class MainTest {
             e.printStackTrace()
             assertTrue(false, "An exception occurred while connecting to the database: ${e.message}")
         }
+    }
+
+    @Test
+    fun testServiceLoader() {
+        val serviceLoader = ServiceLoader.load(ReportInterface::class.java)
+        val reportGenerators = serviceLoader.associateBy { it.implName }
+        assertTrue(reportGenerators.isNotEmpty(), "There should be at least one report generator available")
     }
 }

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Configurator</title>
+</head>
+<body>
+<h1>Report Configurator</h1>
+<form id="reportForm">
+    <h2>Basic Information</h2>
+    <label for="reportType">Report Type:</label>
+    <select id="reportType">
+        <option value="PDF">PDF</option>
+        <option value="EXCEL">Excel</option>
+        <option value="CSV">CSV</option>
+        <option value="TXT">Text</option>
+    </select><br><br>
+
+    <label for="title">Title:</label>
+    <input type="text" id="title" placeholder="Enter report title"><br><br>
+
+    <h2>Title Styling</h2>
+    <label for="titleBold">Bold:</label>
+    <input type="checkbox" id="titleBold"><br>
+
+    <label for="titleItalic">Italic:</label>
+    <input type="checkbox" id="titleItalic"><br>
+
+    <label for="titleColor">Color:</label>
+    <input type="color" id="titleColor" value="#FF0000"><br>
+
+    <label for="titleFontSize">Font Size:</label>
+    <input type="number" id="titleFontSize" value="18"><br><br>
+
+    <h2>Header Styling</h2>
+    <label for="headerBold">Bold:</label>
+    <input type="checkbox" id="headerBold"><br>
+
+    <label for="headerColor">Color:</label>
+    <input type="color" id="headerColor" value="#0000FF"><br>
+
+    <label for="headerFontSize">Font Size:</label>
+    <input type="number" id="headerFontSize" value="12"><br><br>
+
+    <h2>Row Styling</h2>
+    <label for="rowItalic">Italic:</label>
+    <input type="checkbox" id="rowItalic"><br>
+
+    <label for="rowFontSize">Font Size:</label>
+    <input type="number" id="rowFontSize" value="15"><br><br>
+
+    <h2>Summary Styling</h2>
+    <label for="summaryBold">Bold:</label>
+    <input type="checkbox" id="summaryBold"><br>
+
+    <label for="summaryItalic">Italic:</label>
+    <input type="checkbox" id="summaryItalic"><br>
+
+    <label for="summaryColor">Color:</label>
+    <input type="color" id="summaryColor" value="#00FF00"><br>
+
+    <label for="summaryFontSize">Font Size:</label>
+    <input type="number" id="summaryFontSize" value="14"><br>
+
+    <label for="summaryUnderline">Underline:</label>
+    <input type="checkbox" id="summaryUnderline"><br><br>
+
+    <h2>Data Options</h2>
+    <label for="header">Include Header:</label>
+    <input type="checkbox" id="header" checked><br>
+
+    <label for="columns">Columns (comma-separated):</label>
+    <input type="text" id="columns" placeholder="e.g., 3,4,5,6,7"><br>
+
+    <label for="rows">Rows:</label>
+    <select id="rows">
+        <option value="all">All</option>
+        <option value="odd">Odd</option>
+        <option value="even">Even</option>
+    </select><br><br>
+
+    <h2>Computed Columns</h2>
+    <div id="computedColumnsContainer"></div>
+    <button type="button" onclick="addComputedColumn()">Add Computed Column</button><br><br>
+
+    <h2>Summary</h2>
+    <div id="summaryContainer"></div>
+    <button type="button" onclick="addSummaryOperation()">Add Summary Operation</button><br><br>
+
+    <label for="destination">Destination:</label>
+    <input type="text" id="destination" placeholder="e.g., outputs/StudentReport.pdf"><br><br>
+
+    <button type="button" onclick="generateConfig()">Generate Configuration</button>
+</form>
+
+<h2>Generated JSON Configuration</h2>
+<textarea id="configOutput" rows="20" cols="100" readonly></textarea>
+
+<script>
+    function addComputedColumn() {
+        const container = document.getElementById("computedColumnsContainer");
+        const index = container.childElementCount;
+        const div = document.createElement("div");
+        div.innerHTML = `
+                <h3>Computed Column ${index + 1}</h3>
+                <label>Column Name:</label>
+                <input type="text" id="computedColumnName${index}"><br>
+                <label>Operation:</label>
+                <select id="computedColumnOperation${index}">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select><br>
+                <label>Columns (comma-separated):</label>
+                <input type="text" id="computedColumnColumns${index}" placeholder="e.g., 3,4,5"><br><br>
+            `;
+        container.appendChild(div);
+    }
+
+    function addSummaryOperation() {
+        const container = document.getElementById("summaryContainer");
+        const index = container.childElementCount;
+        const div = document.createElement("div");
+        div.innerHTML = `
+                <h3>Summary Operation ${index + 1}</h3>
+                <label>Label:</label>
+                <input type="text" id="summaryLabel${index}"><br>
+                <label>Operation:</label>
+                <select id="summaryOperation${index}">
+                    <option value="SUM">SUM</option>
+                    <option value="AVG">AVG</option>
+                    <option value="COUNT">COUNT</option>
+                </select><br>
+                <label>Column:</label>
+                <input type="number" id="summaryColumn${index}" placeholder="e.g., 5"><br><br>
+            `;
+        container.appendChild(div);
+    }
+
+    function generateConfig() {
+        const config = {
+            reportType: document.getElementById("reportType").value,
+            title: document.getElementById("title").value,
+            titleStyle: {
+                bold: document.getElementById("titleBold").checked,
+                italic: document.getElementById("titleItalic").checked,
+                color: document.getElementById("titleColor").value,
+                fontSize: parseInt(document.getElementById("titleFontSize").value)
+            },
+            headerStyle: {
+                bold: document.getElementById("headerBold").checked,
+                color: document.getElementById("headerColor").value,
+                fontSize: parseInt(document.getElementById("headerFontSize").value)
+            },
+            rowStyle: {
+                italic: document.getElementById("rowItalic").checked,
+                fontSize: parseInt(document.getElementById("rowFontSize").value)
+            },
+            summaryStyle: {
+                bold: document.getElementById("summaryBold").checked,
+                italic: document.getElementById("summaryItalic").checked,
+                color: document.getElementById("summaryColor").value,
+                fontSize: parseInt(document.getElementById("summaryFontSize").value),
+                underline: document.getElementById("summaryUnderline").checked
+            },
+            header: document.getElementById("header").checked,
+            columns: document.getElementById("columns").value.split(',').map(Number),
+            rows: document.getElementById("rows").value,
+            computedColumns: [],
+            summary: {},
+            destination: document.getElementById("destination").value
+        };
+
+        // Add computed columns
+        const computedColumnsContainer = document.getElementById("computedColumnsContainer");
+        for (let i = 0; i < computedColumnsContainer.childElementCount; i++) {
+            config.computedColumns.push({
+                columnName: document.getElementById(`computedColumnName${i}`).value,
+                operation: document.getElementById(`computedColumnOperation${i}`).value,
+                columns: document.getElementById(`computedColumnColumns${i}`).value.split(',').map(Number)
+            });
+        }
+
+        // Add summary operations
+        const summaryContainer = document.getElementById("summaryContainer");
+        for (let i = 0; i < summaryContainer.childElementCount; i++) {
+            const label = document.getElementById(`summaryLabel${i}`).value;
+            config.summary[label] = {
+                operation: document.getElementById(`summaryOperation${i}`).value,
+                column: parseInt(document.getElementById(`summaryColumn${i}`).value)
+            };
+        }
+
+        document.getElementById("configOutput").value = JSON.stringify(config, null, 2);
+    }
+</script>
+</body>
+</html>
