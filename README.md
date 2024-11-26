@@ -1,6 +1,11 @@
 # **Summarix: Advanced Multi-Format Report Generator**  
 
-**Summarix** is a powerful, modular report generation library written in **Kotlin**. It enables seamless generation of reports in multiple formats **(PDF, XLSX, CSV, TXT)** with advanced customization options such as **computed columns, summary rows, and user-defined styles**. Designed with **extensibility** and **scalability** in mind, Summarix is a versatile tool for businesses, developers, and data analysts seeking to automate report generation.
+**Summarix** is a powerful, modular report generation library written in **Kotlin**. It takes a database and enables seamless generation of reports using database data in multiple formats **(PDF, XLSX, CSV, TXT)** with advanced customization options such as **computed columns, summary rows, and user-defined styles**. Designed with **extensibility** and **scalability** in mind, Summarix is a versatile tool for businesses, developers, and data analysts seeking to automate report generation.
+
+<p align="center">
+  <img src="outputs/excel_report.png" alt="Excel Report" width="400" />
+  <img src="outputs/pdf_report.png" alt="Pdf Report" width="360" />
+</p>
 
 ## **Features**
 - **Multi-Format Support**: Generate reports in **PDF, Excel, CSV, and TXT** formats.  
@@ -14,6 +19,11 @@
 - **Dynamic Data Handling**: Automatically processes **SQL result sets** or **JSON input** for report generation.  
 - **Extensibility**: Built with modular architecture, supporting easy addition of new report formats.  
 
+## Real-World Applications
+- **Business Reporting**: Automate monthly, quarterly, or yearly reports for stakeholders.  
+- **Data Analytics**: Generate detailed reports with computed columns and summaries for analysis.  
+- **Education**: Create student performance reports for schools or training programs.  
+- **Freelancing**: Use Summarix to provide customized reports to clients in multiple formats.  
 
 ## Getting Started
 **Installation**  
